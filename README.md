@@ -1,6 +1,6 @@
 # SDCND-Term-3-Trajectory-Planner
 
-##Path Planning Project
+## Path Planning Project
 Goal
 The goal of the project was to develop a trajectory/ highway path planner to lead the car through the highway traffic without causing accidents.
 
