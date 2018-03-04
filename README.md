@@ -1,21 +1,14 @@
 # SDCND-Term-3-Trajectory-Planner
 
-Path Planning Project
+##Path Planning Project
 Goal
-The goal of the project was to generate a jerk minimizing trajectory for out autonomous car, such that it avoids collisions and changes lanes when it's desirable to do so. The car should stay within its lane, unless for a short duration while changing lanes. The car should obey the velocity, acceleration and jerk threshold while traversing the trajectory.
+The goal of the project was to develop a trajectory/ highway path planner to lead the car through the highway traffic without causing accidents.
 
-Generating Car Path
-The path planner for the car is designed to have the car keep its lane unless it encounters a cars up ahead. In which case, the car decelerates to avoid a collision and attempts to change its lane if there is enough room available to do so.
 
-Model Design
-Avoiding collisions
-The sensor data is used to determine the distance our car from the nearest car ahead of it in the same lane. If the other car is closer than 30m to us we gradually decelerate to avoid collision.
+### Trajectory Planner 
 
-Changing lanes
-The car keep to it's current lane unless it encounters a car ahead of it slowing it down. The planner then uses the sensor data to check if there is room in the adjacent lanes to switch lanes. If the planner finds 30m space, behind and ahead of the car, in an adjacent lane, it switches lane. The planner tries to turn left first, and then checks for a right turn if the car is already in the leftmost lane or there is no room on the left side.
+Based on the sensorfusion data, the trajectory planner checks if a car is upfront in it's lane. If a car is not in the lane, the car is driving with constant speed on the lane. Otherwise, if on the adjacent lanes is a gap with a size of at least 40 m, the car should switch lanes. If not, the car stays in it's place and the algorithm starts from the beginning.
 
-Building trajectory
-The planner uses the desired way points at 30m, 60m and 90m from the cars last position from the previous car path and the previous two way points to fit a spline curve. It then generates new way points 2 milliseconds apart from each other, using the reference velocity to determine distance between points.
 
 CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
